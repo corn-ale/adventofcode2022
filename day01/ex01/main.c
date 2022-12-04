@@ -81,3 +81,5 @@ int	main()
 	}
 	return (EXIT_SUCCESS);
 }
+
+// X-lose Y-draw Z-win
