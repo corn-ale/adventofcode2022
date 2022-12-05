@@ -93,13 +93,11 @@ int	main()
 	i = 1;
 	while(line)
 	{
-		// printf("%d %s", i, line);
 		count_pairs(line, &ex01, &ex02);
 		free(line);
 		line = get_next_line(fd);
 		i++;
 	}
-
 	close(fd);
 	printf("result for ex01: %d\n", ex01);
 	printf("result for ex02: %d\n", ex02);
