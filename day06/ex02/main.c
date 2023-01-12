@@ -16,14 +16,20 @@ The function searches the entire string, starting with the
 area of 14 characters is incremented in such a way that the
 same pair of matching characters won't be found again:
 
-...|.....a.....a..|.........  -->  ........a|.....a........|...
+	|.....a.....a..|.........  -->  .....a|.....a........|...
+	 0            13                0    5              19
 
-. = chars in str
-a = matching chars in searched range
-| = searched range
+	. = chars in str
+	a = matching chars in searched range
+	| = searched range
 
-If such an area was found in the string, the position of the
-last character of the found area is returned. Otherwise -1
+	In this examlpe a pair of 'a' were found, so the searched
+	area is incremented in a way that the next position starts
+	after the 1st 'a'. If there are no duplicate characters, 19
+	is returned.
+
+If all 14 characters were different, the position of the
+last of the 14 characters is returned. Otherwise -1
 is returned.
 */
 int	checkStart(char **s)
@@ -38,11 +44,9 @@ int	checkStart(char **s)
 	while (str[start] && str[end])
 	{
 
-
 		i = start;
 		while (i < end && str[i])
 		{
-
 
 			j = i + 1;
 			while(j <= end && str[j])
@@ -67,7 +71,6 @@ int	checkStart(char **s)
 			if (dupes)
 				break ;
 
-
 			i++;
 		}
 		if (dupes)
@@ -75,7 +78,6 @@ int	checkStart(char **s)
 			start = i;
 			dupes = false;
 		}
-
 
 		start++;
 		end = start + 13;
